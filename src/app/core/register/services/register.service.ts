@@ -1,21 +1,18 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Http } from "@angular/http";
-
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Http } from '@angular/http';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class RegisterService {
-    api: string;
+  api: string;
 
-    constructor(
-        public http: Http
-    ) {
-        this.api = '';
-    }
+  constructor(public http: Http) {
+    this.api = '/kazan/api';
+  }
 
-    public register(body: any): Observable<any> {
-        return this.http.post(`${this.api}`, body);
-    }
+  public register(body: any): Observable<any> {
+    return this.http.post(`${this.api}`, body);
+  }
 }

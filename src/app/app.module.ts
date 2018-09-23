@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent }   from './app.component';
+import { AppComponent } from './app.component';
 
 import { AppRoutes } from './app.routing';
 import { SidebarModule } from 'app/common/sidebar/sidebar.module';
@@ -18,27 +18,21 @@ import { AuthLayoutComponent } from 'app/common/layouts/auth/auth-layout.compone
 // import { AngularFireModule } from 'angularfire2';
 // import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-
 @NgModule({
-    imports:      [
-        BrowserAnimationsModule,
-        FormsModule,
-        RouterModule.forRoot(AppRoutes),
-        HttpModule,
-        SidebarModule,
-        NavbarModule,
-        FooterModule,
-        FixedPluginModule,
-        PagesnavbarModule,
-        // AngularFireModule.initializeApp(environment.firebase),
-        // AngularFireDatabaseModule,
-    ],
-    declarations: [
-        AppComponent,
-        AdminLayoutComponent,
-        AuthLayoutComponent,
-    ],
-    bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserAnimationsModule,
+    FormsModule,
+    RouterModule.forRoot(AppRoutes),
+    HttpModule,
+    SidebarModule,
+    NavbarModule,
+    FooterModule,
+    FixedPluginModule,
+    PagesnavbarModule
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireDatabaseModule,
+  ],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  bootstrap: [AppComponent]
 })
-
-export class AppModule { }
+export class AppModule {}
