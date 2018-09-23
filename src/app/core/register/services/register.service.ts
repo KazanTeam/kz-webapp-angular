@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,11 @@ import { Http } from '@angular/http';
 export class RegisterService {
   api: string;
 
-  constructor(public http: Http) {
-    this.api = '/kazan/api';
+  constructor(public http: HttpClient) {
+    this.api = environment.kazanApi;
   }
 
   public register(body: any): Observable<any> {
-    return this.http.post(`${this.api}`, body);
+    return this.http.post(`${this.api}/kazan/user/add`, body);
   }
 }

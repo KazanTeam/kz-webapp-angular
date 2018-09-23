@@ -15,6 +15,8 @@ import { FixedPluginModule } from 'app/common/shared/fixedplugin/fixedplugin.mod
 import { PagesnavbarModule } from 'app/common/shared/pagesnavbar/pagesnavbar.module';
 import { AdminLayoutComponent } from 'app/common/layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from 'app/common/layouts/auth/auth-layout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
 // import { AngularFireModule } from 'angularfire2';
 // import { AngularFireDatabaseModule } from 'angularfire2/database';
 
@@ -28,11 +30,13 @@ import { AuthLayoutComponent } from 'app/common/layouts/auth/auth-layout.compone
     NavbarModule,
     FooterModule,
     FixedPluginModule,
-    PagesnavbarModule
+    PagesnavbarModule,
+    HttpClientModule,
     // AngularFireModule.initializeApp(environment.firebase),
     // AngularFireDatabaseModule,
+    CoreModule
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
