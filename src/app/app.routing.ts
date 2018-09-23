@@ -44,7 +44,10 @@ export const AppRoutes: Routes = [{
         loadChildren: './common/pages/pages.module#PagesModule'
     }]
 },{
-    path: 'login-screen',
+    path: 'login',
     loadChildren: './core/login-screen/login.module#LoginModule'
+},{
+    path: 'register',
+    loadChildren: './core/register/register.module#RegisterModule'
 },
 ];

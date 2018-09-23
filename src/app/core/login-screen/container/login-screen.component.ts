@@ -19,33 +19,28 @@ export class LoginScreenComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      // username: ['', Validators.required],
       email: ['', Validators.required],
-      // phoneNumber: ['', Validators.required],
       password: ['', Validators.required],
     })
   }
 
   public login() {
     const userForm = {
-      // username: this.loginForm.get('username').value,
       email: this.loginForm.get('email').value,
-      // phoneNumber: this.loginForm.get('phoneNumber').value,
       password: this.loginForm.get('password').value,
-      mt4Password: this.loginForm.get('password').value // mt4 pass equal password when create
     }
 
     console.log(userForm);
 
     if(this.loginForm.valid){
-      this.loginService.authenticate(userForm)
-        .subscribe(data => {
-          if(data === true){
+      // this.loginService.authenticate(userForm)
+      //   .subscribe(data => {
+          // if(data === true){
             this.router.navigate(['dashboard'])
-          }
-        },err => {
+          // }
+        // },err => {
           
-        })
+        // })
     }
 
   }
