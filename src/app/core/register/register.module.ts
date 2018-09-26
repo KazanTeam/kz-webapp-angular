@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from 'app/common/pages/login/login.component';
 import { RegisterRoutingModule } from './register.routing';
 import { RegisterComponent } from './containers/register.component';
 
@@ -10,7 +8,7 @@ import { RegisterComponent } from './containers/register.component';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        RegisterRoutingModule
+        RegisterRoutingModule,
     ],
     declarations: [
         RegisterComponent

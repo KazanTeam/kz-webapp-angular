@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { resolve } from 'q';
 
 @Component({
   selector: 'app-login-screen',
@@ -10,17 +12,17 @@ import { Route, Router } from '@angular/router';
 })
 export class LoginScreenComponent implements OnInit {
   loginForm: FormGroup;
-  
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private afAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      password: [''],
     })
   }
 
@@ -32,16 +34,19 @@ export class LoginScreenComponent implements OnInit {
 
     console.log(userForm);
 
-    if(this.loginForm.valid){
+    if (this.loginForm.valid) {
+      this.afAuth.auth.signInWithEmailAndPassword(userForm.email, userForm.password)
+        .then(res => {
+          resolve(res);
+          console.log(res);
+        })
       // this.loginService.authenticate(userForm)
       //   .subscribe(data => {
-          // if(data === true){
-            this.router.navigate(['dashboard'])
-          // }
-        // },err => {
-          
-        // })
-    }
+      //     this.router.navigate(['dashboard'])
+      //   })
+      //   , err => {
 
+      //   };
+    }
   }
 }
