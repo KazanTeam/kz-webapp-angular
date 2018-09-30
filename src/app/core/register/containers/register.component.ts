@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
     const registerForm = {
       firstname: this.registerForm.get('firstname').value,
       lastname: this.registerForm.get('lastname').value,
-      refId: this.registerForm.get('refId').value,
       email: this.registerForm.get('email').value,
       phoneNumber: this.registerForm.get('phoneNumber').value,
       username: this.registerForm.get('username').value,

@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit, AfterViewChecked, AfterContentInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 declare var $: any;
 // Metadata
@@ -115,6 +117,13 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     return true;
   }
 
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ){
+
+  }
+
   ngOnInit() {
     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -138,5 +147,13 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     const collapseId = $sidebarParent.siblings('a').attr('href');
 
     $(collapseId).collapse('show');
+  }
+
+  public toUserProfileScreen(){
+    this.router.navigate(['/user/user-profile/a'])
+  }
+
+  public toEditUserProfileScreen(){
+    this.router.navigate(['/user/edit-user/a'])
   }
 }

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from 'app/common/layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from 'app/common/layouts/auth/auth-layout.component';
+import { AuthGuard } from './core/services/auth.guard';
 
 export const AppRoutes: Routes = [
   {
@@ -39,6 +40,10 @@ export const AppRoutes: Routes = [
       {
         path: 'calendar',
         loadChildren: './common/calendar/calendar.module#CalendarModule'
+      },
+      {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule'
       },
       {
         path: '',

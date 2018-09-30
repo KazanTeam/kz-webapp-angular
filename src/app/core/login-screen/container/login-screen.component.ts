@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { resolve } from 'q';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-screen',
@@ -16,7 +17,8 @@ export class LoginScreenComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -38,7 +40,11 @@ export class LoginScreenComponent implements OnInit {
       this.afAuth.auth.signInWithEmailAndPassword(userForm.email, userForm.password)
         .then(res => {
           resolve(res);
-          console.log(res);
+          this.afAuth.idToken
+            .subscribe(data => {
+              this.authService.accessToken = data;
+              console.log(this.authService.accessToken);
+            })
         })
       // this.loginService.authenticate(userForm)
       //   .subscribe(data => {

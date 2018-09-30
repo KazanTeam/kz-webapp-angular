@@ -21,6 +21,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'environments/environment';
+import { ToasterModule } from 'angular2-toaster';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { environment } from 'environments/environment';
     AngularFireDatabaseModule,
     CoreModule,
     AngularFireAuthModule,
+    ToasterModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   bootstrap: [AppComponent]
