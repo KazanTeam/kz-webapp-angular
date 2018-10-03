@@ -43,16 +43,14 @@ export class LoginScreenComponent implements OnInit {
           this.afAuth.idToken
             .subscribe(data => {
               this.authService.accessToken = data;
-              console.log(this.authService.accessToken);
             })
         })
-      // this.loginService.authenticate(userForm)
-      //   .subscribe(data => {
-      //     this.router.navigate(['dashboard'])
-      //   })
-      //   , err => {
+      this.loginService.authenticate(userForm)
+        .subscribe(result => {
+          this.router.navigate(['dashboard'])
+        }, err => {
 
-      //   };
+        })
     }
   }
 }

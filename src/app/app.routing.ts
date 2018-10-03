@@ -6,12 +6,14 @@ import { AuthGuard } from './core/services/auth.guard';
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: '',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
@@ -73,5 +75,9 @@ export const AppRoutes: Routes = [
   {
     path: 'register',
     loadChildren: './core/register/register.module#RegisterModule'
-  }
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: './core/forgot-password/forgot-password.module#ForgotPasswordModule'
+  },
 ];
