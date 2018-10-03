@@ -46,6 +46,10 @@ export const AppRoutes: Routes = [
         loadChildren: './user/user.module#UserModule'
       },
       {
+        path: 'group',
+        loadChildren: './group/group.module#GroupModule'
+      },
+      {
         path: '',
         pathMatch: 'full',
         loadChildren: './common/userpage/user.module#UserModule'

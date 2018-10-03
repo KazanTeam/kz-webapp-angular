@@ -1,0 +1,42 @@
+<div class="container wrapper wrapper-full-page">
+  <div class="card">
+    <div class="content table-responsive table-full-width clearfix">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">{{ tableData1.headerRow[0] }}</th>
+            <th>{{ tableData1.headerRow[1] }}</th>
+            <th>{{ tableData1.headerRow[2] }}</th>
+            <th class="text-right">{{ tableData1.headerRow[4] }}</th>
+            <th class="text-right">{{ tableData1.headerRow[5] }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData1.dataRows">
+            <td class="text-center">{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td class="text-right">&euro; {{row[4]}}</td>
+            <td class="td-actions text-right">
+              <a rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                <i class="fa fa-user"></i>
+              </a>
+              <a rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                <i class="fa fa-times"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="card form-group pull-right clearfix">
+      <button class="btn btn-primary btn-fill">Create group</button>
+    </div>
+  </div>
+</div>

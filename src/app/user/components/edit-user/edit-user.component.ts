@@ -16,9 +16,9 @@ export class EditUserComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService
-  ) { 
+  ) {
     this.id = this.route.snapshot.params['id'];
-    if(!this.id){
+    if (!this.id) {
       this.router.navigate(['/dashboard'])
     }
     console.log(this.id);
@@ -26,7 +26,7 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit() {
     this.editUserForm = this.fb.group({
-      email: ['', Validators.required],
+      email: [{ value: '', disabled: true }, Validators.required],
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       // refId: ['', Validators.required],
@@ -53,7 +53,6 @@ export class EditUserComponent implements OnInit {
     const editUserForm = {
       firstname: this.editUserForm.get('firstname').value,
       lastname: this.editUserForm.get('lastname').value,
-      email: this.editUserForm.get('email').value,
       phoneNumber: this.editUserForm.get('phoneNumber').value,
       username: this.editUserForm.get('username').value,
       telegramId: 0,
@@ -61,10 +60,10 @@ export class EditUserComponent implements OnInit {
     };
     console.log(editUserForm);
 
-    if(this.editUserForm.valid){
+    if (this.editUserForm.valid) {
       this.userService.updateUserProfile(editUserForm)
-        .subscribe(data => { 
-          
+        .subscribe(data => {
+
         })
     }
   }
