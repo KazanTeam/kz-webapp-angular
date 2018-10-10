@@ -40,12 +40,4 @@ export class AuthService {
     this.store.remove('tokenType');
   }
 
-  authenticate(userInfo: IUserInfo): Observable<any> {
-    return this.http.post(`${this.baseURL}/account/login-account`, userInfo);
-  }
-
-  sendReactivateAccountTicket(sendTicketDto: ISendTicketDto): Observable<any> {
-    // TODO: apply with latest API from backend
-    return this.http.post(`${this.baseURL}/account/account-deactivated`, sendTicketDto);
-  }
 }

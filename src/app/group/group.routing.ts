@@ -9,7 +9,7 @@ const routes: Routes = [
     component: GroupComponent
   },
   {
-    path:'edit-group/:id',
+    path: 'edit-group/:id',
     component: EditGroupComponent
   }
 ];
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class GroupRoutingModule {}
+export class GroupRoutingModule { }

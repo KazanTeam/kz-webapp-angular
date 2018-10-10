@@ -5,18 +5,18 @@ import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class LoginService {
-    api: string;
+  api: string;
 
-    constructor(
-        public http: HttpClient
-    ) {
-      this.api = environment.kazanApi
-     }
+  constructor(
+    public http: HttpClient
+  ) {
+    this.api = environment.kazanApi
+  }
 
-    public authenticate(bodyLogin: any): Observable<any> {
-        return this.http.post(`${this.api}/kazan/api/authenticate/login`, bodyLogin);
-    }
+  public authenticate(bodyLogin: any): Observable<any> {
+    return this.http.post(`${this.api}/kazan/api/authenticate/login`, bodyLogin);
+  }
 }

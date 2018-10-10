@@ -16,12 +16,12 @@ import { PagesnavbarModule } from 'app/common/shared/pagesnavbar/pagesnavbar.mod
 import { AdminLayoutComponent } from 'app/common/layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from 'app/common/layouts/auth/auth-layout.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CoreModule } from './core/core.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'environments/environment';
 import { ToasterModule } from 'angular2-toaster';
+import { CoreModule } from 'app/core/core.module';
 
 @NgModule({
   imports: [

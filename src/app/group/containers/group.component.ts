@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GroupService } from '../group.service';
 
 declare interface TableData {
   headerRow: string[];
@@ -13,7 +14,7 @@ declare interface TableData {
 export class GroupComponent implements OnInit {
   public tableData1: TableData;
 
-  constructor() { }
+  constructor(private groupService: GroupService) { }
 
   ngOnInit() {
     this.tableData1 = {
@@ -26,7 +27,14 @@ export class GroupComponent implements OnInit {
         ['5', 'Paul Dickens', 'Communication', '2015', '69,201', '']
       ]
     };
+    this.getGroup()
+  }
 
+  public getGroup() {
+    this.groupService.getGroup()
+      .subscribe(data => {
+        console.log(data)
+      })
   }
 
 }

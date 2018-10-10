@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { resolve } from 'q';
 import { AuthService } from '../../services/auth.service';
+import { StoreProvider } from '../../services/storeProvider/store.provider';
 
 @Component({
   selector: 'app-login-screen',
@@ -18,7 +19,8 @@ export class LoginScreenComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private afAuth: AngularFireAuth,
-    private authService: AuthService
+    private authService: AuthService,
+    private store: StoreProvider
   ) { }
 
   ngOnInit() {
@@ -45,8 +47,11 @@ export class LoginScreenComponent implements OnInit {
               this.authService.accessToken = data;
             })
         })
+
       this.loginService.authenticate(userForm)
         .subscribe(result => {
+          this.store.set('accessToken', this.authService.accessToken);
+          console.log(this.store.get('accessToken'));
           this.router.navigate(['dashboard'])
         }, err => {
 
